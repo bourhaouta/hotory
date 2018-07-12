@@ -1,0 +1,23 @@
+{
+    "name": "hotory",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bourhaouta/hotory.git"
+    },
+    "author": "Omar Bourhaouta <bourhaouta@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bourhaouta/hotory/issues"
+    },
+    "homepage": "https://github.com/bourhaouta/hotory#readme",
+    "devDependencies": {
+        "rupture": "^0.7.1",
+        "stylus": "^0.54.5"
+    }
+}

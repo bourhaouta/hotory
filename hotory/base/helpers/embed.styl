@@ -1,0 +1,27 @@
+.embed
+.embed\\:wide
+.embed\\:square
+    position relative
+    display block
+    overflow hidden
+    padding 0
+    width 100%
+
+    &::before
+        display block
+        content ''
+
+    & > *
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        size 100%
+
+.embed\\:wide
+    &::before
+        padding-top 56.25%
+
+.embed\\:square
+    &::before
+        padding-top 100%

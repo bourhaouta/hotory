@@ -1,0 +1,56 @@
+$positions = 'relative' 'fixed' 'absolute' 'sticky'
+
+for $position in $positions
+    .is-{$position}
+        position unquote($position)
+
+for $direction in 'all' 'top' 'right' 'bottom' 'left' 'none' 'center'
+    .has-position\\:{$direction}
+        if ($direction == 'all')
+            top 0
+            right 0
+            bottom 0
+            left 0
+
+        if ($direction == 'top')
+            top 0
+            right 0
+            left 0
+
+        if ($direction == 'right')
+            top 0
+            right 0
+            bottom 0
+
+        if ($direction == 'bottom')
+            right 0
+            bottom 0
+            left 0
+
+        if ($direction == 'left')
+            top 0
+            bottom 0
+            left 0
+
+        if ($direction == 'none')
+            top auto
+            right auto
+            bottom auto
+            left auto
+
+        if ($direction == 'center')
+            top 50% /* rtl:ignore */
+            left 50% /* rtl:ignore */
+            transform translate3d(-50%, -50%, 0) /* rtl:ignore */
+
+    for $position in $positions
+        .is-{$position}\\:{$direction}
+            @extends .is-{$position}, .has-position\\:{$direction}
+
+// z-index
+.has-index\\:auto
+    z-index auto
+
+for $index in 0 10 20 30 40 50 60 70 80 90 100
+    .has-index\\:{$index}
+        z-index $index

@@ -1,0 +1,29 @@
+.is-disabled
+    opacity .5
+    pointer-events none
+
+.is-marginless
+    margin 0 !important
+
+.is-paddingless
+    padding 0 !important
+
+.is-radiusless
+    border-radius 0 !important
+
+.is-shadowless
+    box-shadow none !important
+
+.is-unselectable
+    user-select none !important
+
+.is-clipped
+    overflow hidden !important
+
+for $property in 'margin' 'padding'
+    for $direction in 'all' 'top' 'right' 'bottom' 'left'
+        .has-{$property}\\\@remove\\:{$direction}
+            if ($direction == 'all')
+                {$property} 0 !important
+            else
+                {$property}-{$direction} 0 !important

@@ -1,0 +1,45 @@
+.button
+    position relative
+    display inline-flex
+    justify-content center
+    align-items center
+    outline none
+    border none
+    border-radius $radius
+    box-shadow none
+    vertical-align top
+    text-align center
+    white-space nowrap
+    line-height 1.25
+    cursor pointer
+    user-select none
+    touch-action manipulation
+    -moz-appearance none
+    -webkit-appearance none
+    -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+
+    strong
+        color inherit
+
+    .icon
+        &:first-child:not(:last-child)
+            margin-right 5px
+            margin-left 0
+
+        &:last-child:not(:first-child)
+            margin-right 0
+            margin-left 5px
+
+        &:first-child:last-child
+            margin-right 0
+            margin-left 0
+
+    &[disabled]
+    &.is-disabled
+        // opacity .5
+        cursor not-allowed
+        // pointer-events none
+
+    &.is-fluid
+        display flex
+        width 100%

@@ -1,0 +1,53 @@
+for $display in 'inline' 'block' 'flex' 'grid'
+    // Generate .{display} and .inline-{display}
+    .is-{$display}
+        display unquote($display)
+
+    if ($display != 'inline')
+        .is-inline-{$display}
+            display unquote('inline-' + $display) // Don't generate .inline-inline
+
+    // Flexbox modifiers
+    if ($display == 'flex')
+        // Wrap
+        .is-flex.is-wrap
+            flex-wrap wrap
+
+        // Directions
+        for $direction in 'row' 'column'
+            .is-flex\\:{$direction}
+                @extends .is-flex
+
+                flex-direction unquote($direction)
+
+                &.is-reverse
+                    flex-direction unquote($direction + '-reverse')
+
+                &.is-wrap
+                    @extends .is-flex.is-wrap
+
+        // Justify Content
+        for $value in 'start' 'end' 'center' 'between' 'around'
+            [class*=is-flex].has-justify\\:{$value}
+                if ($value == 'start' || ($value == 'end'))
+                    justify-content unquote('flex-' + $value)
+
+                if ($value == 'between' || ($value == 'around'))
+                    justify-content unquote('space-' + $value)
+
+                if ($value == 'center')
+                    justify-content unquote($value)
+
+        // Align items
+        for $value in 'start' 'end' 'center' 'stretch' 'baseline'
+            [class*=is-flex].has-align\\:{$value}
+                if ($value == 'start' || ($value == 'end'))
+                    align-items unquote('flex-' + $value)
+                else
+                    align-items unquote($value)
+
+.is-hidden
+    display none
+    visibility hidden
+    font-size 0
+    opacity 0
