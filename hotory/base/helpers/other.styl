@@ -22,8 +22,9 @@
 
 for $property in 'margin' 'padding'
     for $direction in 'all' 'top' 'right' 'bottom' 'left'
-        .has-{$property}\\\@remove\\:{$direction}
-            if ($direction == 'all')
-                {$property} 0 !important
-            else
-                {$property}-{$direction} 0 !important
+        for $event in 'remove' 'auto'
+            .has-{$property}\\\@{$event}\\:{$direction}
+                if ($direction == 'all')
+                    {$property} ($event == 'remove') ? 0 : auto
+                else
+                    {$property} ($event == 'remove') ? 0 : auto
