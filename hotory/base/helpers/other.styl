@@ -27,4 +27,4 @@ for $property in 'margin' 'padding'
                 if ($direction == 'all')
                     {$property} ($event == 'remove') ? 0 : auto
                 else
-                    {$property} ($event == 'remove') ? 0 : auto
+                    {$property}-{$direction} ($event == 'remove') ? 0 : auto
